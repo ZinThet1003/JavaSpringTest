@@ -1,5 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
-import '../Styles/style.css'
+import '../Styles/style.css';
 function PreView() {
   return (
     <div className='slidelabel'>

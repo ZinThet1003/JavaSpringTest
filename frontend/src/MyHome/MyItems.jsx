@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
+import SearchItem from './SearchItem';
 
 function MyItems() {
   const items = [
@@ -11,6 +12,7 @@ function MyItems() {
 
   return (
     <Container>
+      <SearchItem></SearchItem>
       <div className="d-flex justify-content-around">
         {items.map(item => (
         <Card style={{ width: '18rem' }}>

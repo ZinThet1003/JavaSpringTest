@@ -7,10 +7,9 @@ import java.util.*;
 
 @RestController
 public class MyHomeController {
-
     public List<User> users = Arrays.asList(
-        new User(1, "John Doe", "john@example.com"),
-        new User(2, "Jane Smith", "jane@example.com")
+        new User(1, "mon", "mon@gmail.comm", "Tokyo", "0123456788"),
+        new User(2, "Jane Smith", "jane@example.com", "Osaka", "08012122344")
     );
 
     @RequestMapping("/")
