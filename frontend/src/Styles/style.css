@@ -1,0 +1,4 @@
+.slidelabel {
+  height: 50vh;       /* full screen height */
+  object-fit: cover;   /* crop to fill without distortion */
+}

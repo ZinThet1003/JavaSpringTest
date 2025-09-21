@@ -1,16 +1,42 @@
 package com.example.mydemo;
 import java.time.LocalDateTime;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import java.util.*;
+@RequestMapping("/api/users")
+@CrossOrigin(origins = "https://super-duper-bassoon-q7gvqwv6wwq7297vq-3000.app.github.dev")
 
 @RestController
 public class MyHomeController {
-    @RequestMapping("/testhello")
+
+    public List<User> users = Arrays.asList(
+        new User(1, "John Doe", "john@example.com"),
+        new User(2, "Jane Smith", "jane@example.com")
+    );
+
+    @RequestMapping("/")
     String hello() {
         return """
-                こんにちは.
                 現在時刻は%sです。
                 """.formatted(LocalDateTime.now());
     }
-}
 
+    @GetMapping
+    public List<User> getUsers() {
+        return users;
+    }
+
+     // GET user by id
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable int id) {
+        return users.stream()
+                .filter(u -> u.getId() == id)
+                .findFirst()
+                .orElse(null); // or throw 404
+    }
+    
+    @PostMapping
+    public User createUser(@RequestBody User user) {
+        // Save user logic
+        return user;
+    }
+}
